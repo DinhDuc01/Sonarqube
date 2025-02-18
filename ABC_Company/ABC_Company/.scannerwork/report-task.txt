@@ -1,0 +1,6 @@
+projectKey=swt
+serverUrl=http://localhost:9000
+serverVersion=25.1.0.102122
+dashboardUrl=http://localhost:9000/dashboard?id=swt
+ceTaskId=ad03cbba-8a33-4fca-a91b-131e1aba6399
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ad03cbba-8a33-4fca-a91b-131e1aba6399
