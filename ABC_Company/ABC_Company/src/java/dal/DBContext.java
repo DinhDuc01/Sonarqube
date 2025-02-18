@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public abstract class DBContext<T> {
     protected Connection connection;
-    public DBContext()
+    protected DBContext()
     {
         try {
             String user = "golden";

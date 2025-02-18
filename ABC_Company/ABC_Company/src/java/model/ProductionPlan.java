@@ -10,9 +10,9 @@ public class ProductionPlan {
     private Date start;
     private Date end;
     private Department dept;
-    private ArrayList<ProductionPlanHeader> headers = new ArrayList<>();
+    private list<ProductionPlanHeader> headers = new ArrayList<>();
 
-    public ArrayList<ProductionPlanHeader> getHeaders() {
+    public list<ProductionPlanHeader> getHeaders() {
         return headers;
     }
 
