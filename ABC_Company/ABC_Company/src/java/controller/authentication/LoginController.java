@@ -17,12 +17,12 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String param_user = req.getParameter("username");
+        String username = req.getParameter("username");
         String param_pass = req.getParameter("password");
 
         UserDBContext userDB = new UserDBContext();
         // Get user directly with plaintext password matching
-        User user = userDB.get(param_user, param_pass);  // This method now expects a plaintext password
+        User user = userDB.get(username, param_pass);  // This method now expects a plaintext password
 
         if (user != null) {
             // Load the roles and features into the user object

@@ -64,7 +64,7 @@ public class ProductionPlanCreateController extends BaseRBACController {
                 plan.getHeaders().add(header);
         }
         
-        if(plan.getHeaders().size() >0)
+        if (!plan.getHeaders().isEmpty())
         {
             ProductionPlanDBContext db = new ProductionPlanDBContext();
             db.insert(plan);
