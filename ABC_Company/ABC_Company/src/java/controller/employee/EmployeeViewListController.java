@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 import model.Employee;
 import model.auth.User;
 
@@ -31,7 +32,7 @@ public class EmployeeViewListController extends BaseRBACController {
         String workshopIdParam = request.getParameter("workshopId");
         int workshopId = Integer.parseInt(workshopIdParam);
         
-        ArrayList<Employee> employees = db.listByDepartment(workshopId);
+        List<Employee> employees = db.listByDepartment(workshopId);
         request.setAttribute("employees", employees);
         request.getRequestDispatcher("/view/employee/view-available.jsp").forward(request, response);
     }
