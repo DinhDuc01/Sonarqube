@@ -2,6 +2,7 @@
 package model;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProductionPlan {
@@ -10,9 +11,9 @@ public class ProductionPlan {
     private Date start;
     private Date end;
     private Department dept;
-    private list<ProductionPlanHeader> headers = new ArrayList<>();
+    private List<ProductionPlanHeader> headers = new ArrayList<>();
 
-    public list<ProductionPlanHeader> getHeaders() {
+    public List<ProductionPlanHeader> getHeaders() {
         return headers;
     }
 

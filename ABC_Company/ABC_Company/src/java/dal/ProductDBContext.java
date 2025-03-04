@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 
 
 public class ProductDBContext extends DBContext<Product> {
-
+private static final String NOT_SUPPORTED = "Not supported yet.";
     @Override
     public void insert(Product model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException(NOT_SUPPORTED); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
