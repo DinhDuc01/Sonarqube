@@ -33,7 +33,7 @@ public class ProductDBContextTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         productDB = new ProductDBContext();
-        productDB.setConnection(mockConnection); // Sử dụng setter thay vì gán trực tiếp
+        productDB.setConnection(mockConnection);
     }
 
     @After
@@ -41,10 +41,9 @@ public class ProductDBContextTest {
         productDB = null;
     }
 
-    // ✅ TEST CASE 1: list() - Có dữ liệu
     @Test
     public void testList_WithData() throws SQLException {
-        System.out.println("Testing list() method with data...");
+        System.out.println("[TEST] Running testList_WithData...");
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeQuery()).thenReturn(mockResultSet);
@@ -55,16 +54,16 @@ public class ProductDBContextTest {
 
         ArrayList<Product> products = productDB.list();
 
+        System.out.println("Output: " + products);
         assertNotNull(products);
         assertEquals(1, products.size());
         assertEquals("Mock Product", products.get(0).getName());
         assertEquals("Mock Description", products.get(0).getDescription());
     }
 
-    // ✅ TEST CASE 2: list() - Không có dữ liệu
     @Test
     public void testList_Empty() throws SQLException {
-        System.out.println("Testing list() method with no data...");
+        System.out.println("[TEST] Running testList_Empty...");
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeQuery()).thenReturn(mockResultSet);
@@ -72,14 +71,14 @@ public class ProductDBContextTest {
 
         ArrayList<Product> products = productDB.list();
 
+        System.out.println("Output: " + products);
         assertNotNull(products);
         assertEquals(0, products.size());
     }
 
-    // ✅ TEST CASE 3: list() - Dữ liệu chính xác
     @Test
     public void testList_ValidData() throws SQLException {
-        System.out.println("Testing list() method with correct data...");
+        System.out.println("[TEST] Running testList_ValidData...");
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeQuery()).thenReturn(mockResultSet);
@@ -90,16 +89,16 @@ public class ProductDBContextTest {
 
         ArrayList<Product> products = productDB.list();
 
+        System.out.println("Output: " + products);
         assertNotNull(products);
         assertEquals(1, products.size());
         assertEquals("Valid Product", products.get(0).getName());
         assertEquals("Valid Description", products.get(0).getDescription());
     }
 
-    // ✅ TEST CASE 4: get(int id) - ID tồn tại
     @Test
     public void testGet_ExistingProduct() throws SQLException {
-        System.out.println("Testing get() method with existing product...");
+        System.out.println("[TEST] Running testGet_ExistingProduct...");
 
         int productId = 1;
         String productName = "Mock Product";
@@ -112,15 +111,15 @@ public class ProductDBContextTest {
 
         Product product = productDB.get(productId);
 
+        System.out.println("Output: " + product);
         assertNotNull(product);
         assertEquals(productId, product.getId());
         assertEquals(productName, product.getName());
     }
 
-    // ✅ TEST CASE 5: get(int id) - ID không tồn tại
     @Test
     public void testGet_NonExistingProduct() throws SQLException {
-        System.out.println("Testing get() method with non-existing product...");
+        System.out.println("[TEST] Running testGet_NonExistingProduct...");
 
         int productId = 99;
 
@@ -130,13 +129,13 @@ public class ProductDBContextTest {
 
         Product product = productDB.get(productId);
 
+        System.out.println("Output: " + product);
         assertNull(product);
     }
 
-    // ✅ TEST CASE 6: get(int id) - Kiểm tra dữ liệu chính xác
     @Test
     public void testGet_ValidData() throws SQLException {
-        System.out.println("Testing get() method with correct data...");
+        System.out.println("[TEST] Running testGet_ValidData...");
 
         int productId = 2;
         String productName = "Valid Product";
@@ -149,6 +148,7 @@ public class ProductDBContextTest {
 
         Product product = productDB.get(productId);
 
+        System.out.println("Output: " + product);
         assertNotNull(product);
         assertEquals(productId, product.getId());
         assertEquals(productName, product.getName());
